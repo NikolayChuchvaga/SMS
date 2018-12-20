@@ -1,33 +1,35 @@
 <?php
 
-interface sendSms {
-    public function SmsService();
+interface SmsServiceInterface {
+    public function sendSms($phoneNumber, $text);
 }
-$phoneNumbers = ['0','0','0','0','0','0','0','0','0'];
+$phoneNumber = "87172737377";
 $text="Hi, world!";
 
 
-$smsService = Factory::getService($phoneNumbers);
-$smsService->sendSms($phoneNumbers,$text);
+$smsService = Factory::getService($phoneNumber);
+$smsService->sendSms($phoneNumber,$text);
 class Factory{
     public static function getService($phoneNumber) : SmsServiceInterface {
-        class SmsServiceInterface {
-            if $phoneNumbers [1] = 727 then SmsServiceInterface->SmsService1;
-            if $phoneNumbers [1] = 717 then SmsServiceInterface->SmsService2;
-            if $phoneNumbers [1] = 812 then SmsServiceInterface->SmsService3;
-        }
+        return new SmsService1();
+
     }
-     }
-    class SmsService1{
-
-
 }
-    class SmsService2 {
-
+class SmsService1 implements SmsServiceInterface {
+    public function sendSms($phoneNumber, $text)
+    {
+        echo "SmsService1";
+    }
 }
-
-    class SmsService1 {
-
+class SmsService2 implements SmsServiceInterface {
+    public function sendSms($phoneNumber, $text)
+    {
+        echo "SmsService2";
+    }
 }
-
-?>
+class SmsService3 implements SmsServiceInterface {
+    public function sendSms($phoneNumber, $text)
+    {
+        echo "SmsService3";
+    }
+}
