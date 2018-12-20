@@ -19,7 +19,6 @@ class Factory{
                 return new SmsService2();
             case 812:
                 return new SmsService3();
-                break;
         }
     }
 }
