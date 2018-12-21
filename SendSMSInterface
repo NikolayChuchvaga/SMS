@@ -6,8 +6,8 @@ interface SmsServiceInterface {
 
 class Factory{
     public static function getService($phoneNumber) : SmsServiceInterface {
-        $phoneNumbers = str_split($phoneNumber, 3);
-        switch ($phoneNumbers[0]) {
+
+        switch ($code = substr($phoneNumber, 2, 3)) {
             case 727:
                 return new SmsService1();
             case 717:
@@ -35,7 +35,7 @@ class SmsService3 implements SmsServiceInterface {
         echo "SmsService3";
     }
 }
-$phoneNumber = "7272737377";
+$phoneNumber = "+77172737377";
 $text="Hi, world!";
 
 
