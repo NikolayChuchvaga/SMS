@@ -3,12 +3,7 @@
 interface SmsServiceInterface {
     public function sendSms($phoneNumber, $text);
 }
-$phoneNumber = "7172737377";
-$text="Hi, world!";
 
-
-$smsService = Factory::getService($phoneNumber);
-$smsService->sendSms($phoneNumber,$text);
 class Factory{
     public static function getService($phoneNumber) : SmsServiceInterface {
         $phoneNumbers = str_split($phoneNumber, 3);
@@ -40,3 +35,9 @@ class SmsService3 implements SmsServiceInterface {
         echo "SmsService3";
     }
 }
+$phoneNumber = "7272737377";
+$text="Hi, world!";
+
+
+$smsService = Factory::getService($phoneNumber);
+$smsService->sendSms($phoneNumber,$text);
